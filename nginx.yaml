@@ -1,0 +1,13 @@
+- name: Configuring nginx server
+  hosts: non-prod
+  become: yes
+  tasks:
+  - name: install nginx package
+    yum:
+      name: nginx
+      state: present
+
+  - name: starting the nginx service
+    service:
+      name: nginx
+      state: started
